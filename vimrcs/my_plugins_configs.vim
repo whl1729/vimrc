@@ -21,15 +21,26 @@ call vundle#begin('~/.vim_runtime/my_plugins')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+" general
+Plugin 'dyng/ctrlsf.vim'
+" cpp
 Plugin 'rhysd/vim-clang-format'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ctrlsf
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>f :CtrlSF<CR>
+let g:ctrlsf_ackprg = 'ag'
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ClangFormat
+" => clang-format
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup ClangFormatSettings
 autocmd!
