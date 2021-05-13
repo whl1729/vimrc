@@ -7,10 +7,10 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -21,7 +21,19 @@ call vundle#begin('~/.vim_runtime/my_plugins')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'rhysd/vim-clang-format'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ClangFormat
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup ClangFormatSettings
+autocmd!
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+augroup END
