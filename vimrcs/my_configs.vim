@@ -31,8 +31,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fast quit
 nmap <leader>q :q<cr>
-nmap <leader>wq :wq<cr>
-
+nmap <Leader>wq :wa<CR>:qa<CR>
+nmap <Leader>Q :qa!<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
