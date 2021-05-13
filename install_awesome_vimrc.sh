@@ -12,6 +12,7 @@ source ~/.vim_runtime/vimrcs/extended.vim
 
 try
 source ~/.vim_runtime/vimrcs/my_configs.vim
+source ~/.vim_runtime/vimrcs/my_plugins_configs.vim
 catch
 endtry' > ~/.vimrc
 
