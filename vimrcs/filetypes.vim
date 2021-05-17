@@ -81,3 +81,7 @@ let vim_markdown_folding_disabled = 1
 let g:vim_markdown_new_list_item_indent = 0
 
 au FileType markdown setl shiftwidth=2 softtabstop=2 expandtab
+
+" markdown 预览快捷键
+noremap <F8> :!/usr/bin/google-chrome-stable %:p<CR>
+
