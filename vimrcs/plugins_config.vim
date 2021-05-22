@@ -168,6 +168,10 @@ let g:ale_set_highlights = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
+" Avoid the bug: Cursor disappears on lines with warnings/errors #1470
+" The lint message will not show up in the status line after setting this,
+" but we can see them by entering `:lw`.
+let g:ale_echo_cursor = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git gutter (Git diff)
