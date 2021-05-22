@@ -1,4 +1,5 @@
 .DS_Store
+my_plugins/vim-clang-format/doc/tags
 sources_non_forked/ack.vim/.netrwhist
 sources_forked/yankring/doc/tags
 sources_non_forked/tlib/doc/tags

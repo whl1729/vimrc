@@ -1,4 +1,9 @@
 """"""""""""""""""""""""""""""
+" => C/C++ section
+""""""""""""""""""""""""""""""
+au FileType cpp setl shiftwidth=2 tabstop=2 expandtab
+
+""""""""""""""""""""""""""""""
 " => Python section
 """"""""""""""""""""""""""""""
 let python_highlight_all = 1
