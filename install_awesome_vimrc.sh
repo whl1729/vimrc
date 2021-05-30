@@ -16,4 +16,7 @@ source ~/.vim_runtime/vimrcs/my_plugins_configs.vim
 catch
 endtry' > ~/.vimrc
 
+# initialize markdownlint configuration
+echo "style \"$HOME/.vim_runtime/my_configs/mdlrc.rb\"" > ~/.mdlrc
+
 echo "Installed the Ultimate Vim configuration successfully! Enjoy :-)"
