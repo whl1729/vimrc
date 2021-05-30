@@ -3,6 +3,8 @@
 # install tools needed by vim plugins
 sudo apt install silversearcher-ag
 sudo apt install clang-format
+sudo apt install snapd
+sudo pat install mdl
 
 # install Vundle to manage vim plugins
 vundle_dir="$HOME/.vim_runtime/my_plugins/Vundle.vim"
