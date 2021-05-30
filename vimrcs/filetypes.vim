@@ -89,4 +89,4 @@ au FileType markdown setl shiftwidth=2 softtabstop=2 expandtab
 
 " markdown 预览快捷键
 noremap <F8> :!/usr/bin/google-chrome-stable %:p<CR>
-
+noremap <F4> :cex system("mdl ".expand("%:p"))<CR>
