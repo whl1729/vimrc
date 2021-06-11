@@ -37,6 +37,8 @@ au FileType javascript imap <C-a> alert();<esc>hi
 au FileType javascript inoremap <buffer> $r return 
 au FileType javascript inoremap <buffer> $f // --- PH<esc>FP2xi
 
+au FileType javascript setl shiftwidth=2 softtabstop=2 expandtab
+
 function! JavaScriptFold() 
     setl foldmethod=syntax
     setl foldlevelstart=1
