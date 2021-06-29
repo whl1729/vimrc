@@ -25,6 +25,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'dyng/ctrlsf.vim'
 " cpp
 Plugin 'rhysd/vim-clang-format'
+" js
+Plugin 'ternjs/tern_for_vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
