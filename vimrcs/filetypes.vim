@@ -30,6 +30,7 @@ au FileType python map <buffer> <leader>D ?def
 "au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 au FileType javascript setl nocindent
+au FileType javascript setl shiftwidth=2 softtabstop=2 expandtab
 
 au FileType javascript imap <C-t> $log();<esc>hi
 au FileType javascript imap <C-a> alert();<esc>hi
