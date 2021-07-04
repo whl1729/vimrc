@@ -21,6 +21,8 @@ call vundle#begin('~/.vim_runtime/my_plugins')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+" html
+Plugin 'alvan/vim-closetag'
 " general
 Plugin 'dyng/ctrlsf.vim'
 " cpp

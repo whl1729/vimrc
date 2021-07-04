@@ -4,25 +4,20 @@
 au FileType cpp setl shiftwidth=2 tabstop=2 expandtab
 
 """"""""""""""""""""""""""""""
-" => Python section
+" => CoffeeScript section
+"""""""""""""""""""""""""""""""
+function! CoffeeScriptFold()
+    setl foldmethod=indent
+    setl foldlevelstart=1
+endfunction
+au FileType coffee call CoffeeScriptFold()
+
+au FileType gitcommit call setpos('.', [0, 1, 1, 0])
+
 """"""""""""""""""""""""""""""
-let python_highlight_all = 1
-au FileType python syn keyword pythonDecorator True None False self
-
-au BufNewFile,BufRead *.jinja set syntax=htmljinja
-au BufNewFile,BufRead *.mako set ft=mako
-
-au FileType python map <buffer> F :set foldmethod=indent<cr>
-
-au FileType python inoremap <buffer> $r return 
-au FileType python inoremap <buffer> $i import 
-au FileType python inoremap <buffer> $p print 
-au FileType python inoremap <buffer> $f # --- <esc>a
-au FileType python map <buffer> <leader>1 /class 
-au FileType python map <buffer> <leader>2 /def 
-au FileType python map <buffer> <leader>C ?class 
-au FileType python map <buffer> <leader>D ?def 
-
+" => Html section
+"""""""""""""""""""""""""""""""
+au FileType html setl shiftwidth=2 softtabstop=2 expandtab
 
 """"""""""""""""""""""""""""""
 " => JavaScript section
@@ -51,18 +46,37 @@ function! JavaScriptFold()
     setl foldtext=FoldText()
 endfunction
 
+""""""""""""""""""""""""""""""
+" => Markdown section
+""""""""""""""""""""""""""""""
+let vim_markdown_folding_disabled = 1
+let g:vim_markdown_new_list_item_indent = 0
+
+au FileType markdown setl shiftwidth=2 softtabstop=2 expandtab
+
+" markdown 预览快捷键
+noremap <F8> :!/usr/bin/google-chrome-stable %:p<CR>
+noremap <F4> :cex system("mdl ".expand("%:p"))<CR>
 
 """"""""""""""""""""""""""""""
-" => CoffeeScript section
-"""""""""""""""""""""""""""""""
-function! CoffeeScriptFold()
-    setl foldmethod=indent
-    setl foldlevelstart=1
-endfunction
-au FileType coffee call CoffeeScriptFold()
+" => Python section
+""""""""""""""""""""""""""""""
+let python_highlight_all = 1
+au FileType python syn keyword pythonDecorator True None False self
 
-au FileType gitcommit call setpos('.', [0, 1, 1, 0])
+au BufNewFile,BufRead *.jinja set syntax=htmljinja
+au BufNewFile,BufRead *.mako set ft=mako
 
+au FileType python map <buffer> F :set foldmethod=indent<cr>
+
+au FileType python inoremap <buffer> $r return
+au FileType python inoremap <buffer> $i import
+au FileType python inoremap <buffer> $p print
+au FileType python inoremap <buffer> $f # --- <esc>a
+au FileType python map <buffer> <leader>1 /class
+au FileType python map <buffer> <leader>2 /def
+au FileType python map <buffer> <leader>C ?class
+au FileType python map <buffer> <leader>D ?def
 
 """"""""""""""""""""""""""""""
 " => Shell section
@@ -75,21 +89,8 @@ if exists('$TMUX')
     endif
 endif
 
-
 """"""""""""""""""""""""""""""
 " => Twig section
 """"""""""""""""""""""""""""""
 autocmd BufRead *.twig set syntax=html filetype=html
 
-
-""""""""""""""""""""""""""""""
-" => Markdown
-""""""""""""""""""""""""""""""
-let vim_markdown_folding_disabled = 1
-let g:vim_markdown_new_list_item_indent = 0
-
-au FileType markdown setl shiftwidth=2 softtabstop=2 expandtab
-
-" markdown 预览快捷键
-noremap <F8> :!/usr/bin/google-chrome-stable %:p<CR>
-noremap <F4> :cex system("mdl ".expand("%:p"))<CR>
