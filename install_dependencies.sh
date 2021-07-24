@@ -1,6 +1,6 @@
 #!/bin/bash
 
-install() {
+apt_install() {
     if [ "$#" -ne 2 ]; then
         echo "Usage: $0 package bin"
         exit 1
@@ -11,16 +11,32 @@ install() {
     fi
 }
 
-# install tools needed by vim plugins
-install silversearcher-ag ag
-install clang-format clang-format
-install ruby-full ruby
+pip_install() {
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: $0 package"
+        exit 1
+    fi
 
-# install markdown lint
+    if [ "_$(which $1)" = "_" ]; then
+        pip install "$1"
+    fi
+}
+
+# install lint tools
 if [ "_$(which mdl)" = "_" ]; then
+    apt_install ruby-full ruby
     sudo gem install chef-utils -v 16.6.14
     sudo gem install mdl
 fi
+
+pip_install pylint
+
+# install format tools
+pip_install black
+apt_install clang-format clang-format
+
+# install other tools
+apt_install silversearcher-ag ag
 
 # install Vundle to manage vim plugins
 vundle_dir="$HOME/.vim_runtime/my_plugins/Vundle.vim"

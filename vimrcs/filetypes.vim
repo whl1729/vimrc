@@ -2,6 +2,19 @@
 " => C/C++ section
 """"""""""""""""""""""""""""""
 au FileType cpp setl shiftwidth=2 tabstop=2 expandtab
+noremap <F5> :call Format()<CR>
+
+function! Format()
+    let file_extension = expand("%:e")
+    let clang_files = ["c", "cc", "cpp", "js"]
+    if index(clang_files, file_extension) >= 0
+        cex system("clang-format -i ".expand("%:p"))
+    elseif file_extension == "py"
+        cex system("black ".expand("%:p"))
+    endif
+
+    edit
+endfunction
 
 """"""""""""""""""""""""""""""
 " => CoffeeScript section
@@ -56,7 +69,18 @@ au FileType markdown setl shiftwidth=2 softtabstop=2 expandtab
 
 " markdown 预览快捷键
 noremap <F8> :!/usr/bin/google-chrome-stable %:p<CR>
-noremap <F4> :cex system("mdl ".expand("%:p"))<CR>
+noremap <F4> :call Lint()<CR>
+
+function! Lint()
+    let file_extension = expand("%:e")
+    if file_extension == "md"
+        cex system("mdl ".expand("%:p"))
+    elseif file_extension == "py"
+        cex system("pylint ".expand("%:p"))
+    endif
+
+    edit
+endfunction
 
 """"""""""""""""""""""""""""""
 " => Python section
