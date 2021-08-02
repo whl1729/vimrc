@@ -6,11 +6,13 @@ noremap <F5> :call Format()<CR>
 
 function! Format()
     let file_extension = expand("%:e")
-    let clang_files = ["c", "cc", "cpp", "js"]
+    let clang_files = ["c", "cc", "cpp"]
     if index(clang_files, file_extension) >= 0
         cex system("clang-format -i ".expand("%:p"))
     elseif file_extension == "py"
         cex system("black ".expand("%:p"))
+    elseif file_extension == "js"
+        cex system("prettier --no-semi --write ".expand("%:p"))
     endif
 
     edit
@@ -77,6 +79,8 @@ function! Lint()
         cex system("mdl ".expand("%:p"))
     elseif file_extension == "py"
         cex system("pylint ".expand("%:p"))
+    elseif file_extension == "js"
+        cex system("eslint -f unix ".expand("%:p"))
     endif
 
     edit

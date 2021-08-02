@@ -22,29 +22,66 @@ pip_install() {
     fi
 }
 
-# install lint tools
-if [ "_$(which mdl)" = "_" ]; then
-    apt_install ruby-full ruby
-    sudo gem install chef-utils -v 16.6.14
-    sudo gem install mdl
-fi
+npm_install() {
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: $0 package"
+        exit 1
+    fi
 
-pip_install pylint
+    if [ "_$(which $1)" = "_" ]; then
+        npm install --global "$1"
+    fi
+}
 
-# install format tools
-pip_install black
-apt_install clang-format clang-format
+install_linter() {
+    if [ "_$(which mdl)" = "_" ]; then
+        apt_install ruby-full ruby
+        sudo gem install chef-utils -v 16.6.14
+        sudo gem install mdl
+    fi
 
-# install other tools
-apt_install silversearcher-ag ag
+    npm_install eslint
+    pip_install pylint
+}
 
-# install Vundle to manage vim plugins
-vundle_dir="$HOME/.vim_runtime/my_plugins/Vundle.vim"
-if [ ! -d "$vundle_dir" ]; then
-    mkdir -p $vundle_dir
-    git clone https://github.com/VundleVim/Vundle.vim.git $vundle_dir
-fi
+install_formatter() {
+    apt_install clang-format clang-format
+    npm_install prettier
+    pip_install black
+}
 
-# install vim plugins
-vim -E +PluginInstall +qall
+install_vundle() {
+    vundle_dir="$plugin_dir/Vundle.vim"
+    if [ ! -d "$vundle_dir" ]; then
+        mkdir -p $vundle_dir
+        git clone https://github.com/VundleVim/Vundle.vim.git $vundle_dir
+    fi
+}
+
+install_plugin() {
+    vim -E +PluginInstall +qall
+}
+
+install_others() {
+    apt_install silversearcher-ag ag
+
+    # install js tools
+    tern_dir="$plugin_dir/tern_for_vim"
+    if [ ! -e "$tern_dir/node_modules/tern/bin/tern" ]; then
+        cd $tern_dir
+        npm install
+    fi
+}
+
+plugin_dir="$HOME/.vim_runtime/my_plugins"
+
+install_linter
+
+install_formatter
+
+install_vundle
+
+install_plugin
+
+install_others
 
