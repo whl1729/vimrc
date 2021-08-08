@@ -123,3 +123,7 @@ endif
 """"""""""""""""""""""""""""""
 autocmd BufRead *.twig set syntax=html filetype=html
 
+""""""""""""""""""""""""""""""
+" => Yaml
+""""""""""""""""""""""""""""""
+au FileType yaml setl shiftwidth=2 softtabstop=2 expandtab
