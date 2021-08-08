@@ -46,6 +46,7 @@ install_linter() {
 
 install_formatter() {
     apt_install clang-format clang-format
+    apt_install shellcheck shellcheck
     npm_install prettier
     pip_install black
 }

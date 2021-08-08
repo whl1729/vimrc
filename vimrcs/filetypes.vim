@@ -78,10 +78,12 @@ function! Lint()
     let file_extension = expand("%:e")
     if file_extension == "md"
         cex system("mdl ".expand("%:p"))
-    elseif file_extension == "py"
-        cex system("pylint ".expand("%:p"))
     elseif file_extension == "js"
         cex system("eslint -f unix ".expand("%:p"))
+    elseif file_extension == "py"
+        cex system("pylint ".expand("%:p"))
+    elseif file_extension == "sh"
+        cex system("shellcheck -f gcc ".expand("%:p"))
     endif
 
     edit
@@ -110,6 +112,8 @@ au FileType python map <buffer> <leader>D ?def
 """"""""""""""""""""""""""""""
 " => Shell section
 """"""""""""""""""""""""""""""
+au FileType sh setl shiftwidth=2 softtabstop=2 expandtab
+
 if exists('$TMUX') 
     if has('nvim')
         set termguicolors
