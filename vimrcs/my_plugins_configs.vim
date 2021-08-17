@@ -25,6 +25,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'alvan/vim-closetag'
 " general
 Plugin 'dyng/ctrlsf.vim'
+" Add maktaba and codefmt to the runtimepath.
+" (The latter must be installed before it can be used.)
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+" Also add Glaive, which is used to configure codefmt's maktaba flags. See
+" `:help :Glaive` for usage.
+Plugin 'google/vim-glaive'
 " cpp
 Plugin 'rhysd/vim-clang-format'
 " js
@@ -32,6 +39,8 @@ Plugin 'ternjs/tern_for_vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+" the glaive#Install() should go after the "call vundle#end()"
+call glaive#Install()
 filetype plugin indent on    " required
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -50,4 +59,21 @@ augroup ClangFormatSettings
 autocmd!
 autocmd FileType c,cpp,objc,javascript nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc,javascript vnoremap <buffer><Leader>cf :ClangFormat<CR>
+augroup END
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => google vim-codefmt
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType python AutoFormatBuffer yapf
+  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType rust AutoFormatBuffer rustfmt
+  autocmd FileType vue AutoFormatBuffer prettier
 augroup END
