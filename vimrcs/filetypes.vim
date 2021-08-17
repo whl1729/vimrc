@@ -8,10 +8,13 @@ function! Format()
     let file_extension = expand("%:e")
     let clang_files = ["c", "cc", "cpp"]
     let prettier_files = ["js", "md"]
+    let beautify_files = ["html", "css"]
     if index(clang_files, file_extension) >= 0
         cex system("clang-format -i ".expand("%:p"))
     elseif index(prettier_files, file_extension) >= 0
         cex system("prettier --no-semi --write ".expand("%:p"))
+    elseif index(beautify_files, file_extension) >= 0
+        cex system("js-beautify ".expand("%:p"))
     elseif file_extension == "py"
         cex system("black ".expand("%:p"))
     endif
