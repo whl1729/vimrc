@@ -19,10 +19,10 @@ endtry' > ~/.vimrc
 # initialize markdownlint configuration
 echo "style \"$HOME/.vim_runtime/my_configs/mdlrc.rb\"" > ~/.mdlrc
 
-# initialize Tern config file
+# initialize Tern configuration
 cp $HOME/.vim_runtime/my_configs/tern-project $HOME/.tern-project
 
-# initialize js-beautify config file
+# initialize js-beautify configuration
 cp $HOME/.vim_runtime/my_configs/jsbeautifyrc $HOME/.jsbeautifyrc
 
 echo "Installed the Ultimate Vim configuration successfully! Enjoy :-)"

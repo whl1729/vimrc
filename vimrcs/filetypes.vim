@@ -12,7 +12,7 @@ function! Format()
     if index(clang_files, file_extension) >= 0
         cex system("clang-format -i ".expand("%:p"))
     elseif index(prettier_files, file_extension) >= 0
-        cex system("prettier --no-semi --write ".expand("%:p"))
+        cex system("prettier --no-semi --single-quote --write ".expand("%:p"))
     elseif index(beautify_files, file_extension) >= 0
         cex system("js-beautify ".expand("%:p"))
     elseif file_extension == "py"
