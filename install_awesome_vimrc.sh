@@ -22,4 +22,7 @@ echo "style \"$HOME/.vim_runtime/my_configs/mdlrc.rb\"" > ~/.mdlrc
 # initialize Tern config file
 cp $HOME/.vim_runtime/my_configs/tern-project $HOME/.tern-project
 
+# initialize js-beautify config file
+cp $HOME/.vim_runtime/my_configs/jsbeautifyrc $HOME/.jsbeautifyrc
+
 echo "Installed the Ultimate Vim configuration successfully! Enjoy :-)"
