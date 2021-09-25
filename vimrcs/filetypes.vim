@@ -1,4 +1,9 @@
 """"""""""""""""""""""""""""""
+" => awk section
+""""""""""""""""""""""""""""""
+au FileType awk setl indentexpr=
+
+""""""""""""""""""""""""""""""
 " => C/C++ section
 """"""""""""""""""""""""""""""
 au FileType cpp setl shiftwidth=2 tabstop=2 expandtab
