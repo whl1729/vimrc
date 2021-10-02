@@ -34,6 +34,8 @@ Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 " cpp
 Plugin 'rhysd/vim-clang-format'
+" go
+Plugin 'fatih/vim-go'
 " js
 Plugin 'ternjs/tern_for_vim'
 " snippets
