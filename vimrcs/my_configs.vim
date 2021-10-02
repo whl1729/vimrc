@@ -33,6 +33,11 @@
 nmap <leader>q :q<cr>
 nmap <Leader>wq :wa<CR>:qa<CR>
 nmap <Leader>Q :qa!<CR>
+nmap <Leader>t :g/^$/d<CR>
+" Move Right (Youyi, 右移) and Quote until Blank
+nmap <Leader>yb :s/\(^[^ ]*\)/  - `\1`/<CR>
+" Move Right (Youyi, 右移) and Quote until Uppercase letter
+nmap <Leader>yu :s/\(^[^A-Z]*\) /  - `\1` /<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
