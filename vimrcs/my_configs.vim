@@ -33,7 +33,13 @@
 nmap <leader>q :q<cr>
 nmap <Leader>wq :wa<CR>:qa<CR>
 nmap <Leader>Q :qa!<CR>
-nmap <Leader>t :g/^$/d<CR>
+
+" Delete blank lines
+nmap <Leader>db :g/^$/d<CR>
+
+" Quotation marks substitution (TihuanYinhao, 替换引号)
+nmap <Leader>ty :s/“/"/eg \| s/”/"/eg \| s/‘/'/eg \| s/’/'/eg<CR>
+
 " Move Right (Youyi, 右移) and Quote until Blank
 nmap <Leader>yb :s/\(^[^ ]*\)/  - `\1`/<CR>
 " Move Right (Youyi, 右移) and Quote until Uppercase letter
