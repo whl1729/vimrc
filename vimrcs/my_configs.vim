@@ -38,6 +38,8 @@ nmap <Leader>t :g/^$/d<CR>
 nmap <Leader>yb :s/\(^[^ ]*\)/  - `\1`/<CR>
 " Move Right (Youyi, 右移) and Quote until Uppercase letter
 nmap <Leader>yu :s/\(^[^A-Z]*\) /  - `\1` /<CR>
+" Move Right (Youyi, 右移) and add Hyphen
+nmap <Leader>yh :s/^/  - /<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
