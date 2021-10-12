@@ -34,6 +34,9 @@ nmap <leader>q :q<cr>
 nmap <Leader>wq :wa<CR>:qa<CR>
 nmap <Leader>Q :qa!<CR>
 
+" Add Backticks
+nmap <Leader>ab :s/\(<[^>]*>\)/`\1`/g<CR>
+
 " Delete blank lines
 nmap <Leader>db :g/^$/d<CR>
 
