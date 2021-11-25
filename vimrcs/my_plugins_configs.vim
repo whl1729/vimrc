@@ -34,6 +34,8 @@ Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 " cpp
 Plugin 'rhysd/vim-clang-format'
+" glsl
+Plugin 'tikhomirov/vim-glsl'
 " go
 Plugin 'fatih/vim-go'
 " js
