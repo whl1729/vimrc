@@ -63,6 +63,10 @@ install_plugin() {
     vim -E +PluginInstall +qall
 }
 
+install_go_deps() {
+    vim -E +GoInstallBinaries +qall
+}
+
 install_others() {
     apt_install silversearcher-ag ag
 
@@ -83,6 +87,8 @@ install_formatter
 install_vundle
 
 install_plugin
+
+install_go_deps
 
 install_others
 
