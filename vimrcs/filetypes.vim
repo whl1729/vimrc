@@ -6,6 +6,7 @@ au FileType awk setl indentexpr=
 """"""""""""""""""""""""""""""
 " => C/C++ section
 """"""""""""""""""""""""""""""
+au FileType c setl shiftwidth=2 tabstop=2 expandtab
 au FileType cpp setl shiftwidth=2 tabstop=2 expandtab
 noremap <F5> :call Format()<CR>
 
