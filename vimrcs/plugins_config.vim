@@ -178,6 +178,9 @@ let g:ale_lint_on_enter = 0
 " but we can see them by entering `:lw`.
 let g:ale_echo_cursor = 0
 
+" Show information in the quickfix windows instead of the loclist.
+let g:ale_set_quickfix = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git gutter (Git diff)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
