@@ -23,7 +23,9 @@ call vundle#begin('~/.vim_runtime/my_plugins')
 Plugin 'VundleVim/Vundle.vim'
 " html
 Plugin 'alvan/vim-closetag'
-" general
+" python
+Plugin 'davidhalter/jedi-vim'
+" for searching
 Plugin 'dyng/ctrlsf.vim'
 " Add maktaba and codefmt to the runtimepath.
 " (The latter must be installed before it can be used.)

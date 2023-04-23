@@ -51,6 +51,10 @@ install_formatter() {
     pip_install black
 }
 
+install_autocompleter() {
+    pip_install jedi
+}
+
 install_vundle() {
     vundle_dir="$plugin_dir/Vundle.vim"
     if [ ! -d "$vundle_dir" ]; then
@@ -83,6 +87,8 @@ plugin_dir="$HOME/.vim_runtime/my_plugins"
 install_linter
 
 install_formatter
+
+install_autocompleter
 
 install_vundle
 
