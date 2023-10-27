@@ -18,7 +18,7 @@ pip_install() {
     fi
 
     if [ "_$(which $1)" = "_" ]; then
-        pip install "$1"
+        pip install "$1" -i "https://pypi.tuna.tsinghua.edu.cn/simple"
     fi
 }
 
